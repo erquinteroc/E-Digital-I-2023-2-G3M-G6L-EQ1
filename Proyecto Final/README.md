@@ -19,8 +19,10 @@ Debido a problemas con el sensor de color no se pudo implementar este en el proy
 El sensor de ultrasonido utilizado para medir la altura de las cajas estará midiendo esto constantemente pero unicamente se tomarán los datos cuando una caja pase por debajo de esto, nos aseguramos de esto usando un módulo laser que apunta hacia una fotocelda al otro lado de la banda transportadora, cuando una caja pase en frente del láser esta permitirá que la FPGA tome datos únicamente en ese momento, datos que serán utilizados para mover los servomotores ubicados a los lados de la banda transportadora los cuales enviaran las cajas a diferentes lugares dependiendo de su tamaño.
 
 ## Banner
+<img align="left" height="400" src="https://ibb.co/Hp0rFhQ" />
+
 Link del video de la implementación del proyecto: <div align="left"><a href="https://youtu.be/ggKCQbyKBco" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/youtube/default.svg" width="52" height="40" alt="youtube logo"  />
+<img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/youtube/default.svg" width="52" height="40" alt="youtube logo" />
   </a>
 </div>
 
@@ -97,19 +99,19 @@ Salidas: clk_out
 
 ## RTL's sensor de color
 ### Modulo Top (Modulo Principal)
-<img align="right" height="320" src="https://i.ibb.co/DD3j4Nf/Rtl-Sensor-Color.png" />
+<img align="right" height="400" src="https://i.ibb.co/DD3j4Nf/Rtl-Sensor-Color.png" 
 
 El módulo top interconecta todos los módulos de verilog utilizados para el funcionamiento de este proyecto, para esta parte del proyecto se utilizaron 2 módulos los cuales son los siguientes: 
 - Color (Módulo que se encarga de la captura de datos del sensor).
 - Control (Módulo encargado de el control de datos del sensor (Encender un led)).
 
  ### Modulo color
- <img align="right" height="500" src="https://i.ibb.co/tD7R5CZ/Rtl-Datos-Color.png"  />
+ <img align="right" height="450" src="https://i.ibb.co/tD7R5CZ/Rtl-Datos-Color.png"  
  
  El modulo de color basicamente funciona filtrando cada señal obtenida en un cable que es enviado al modulo de control para realizar la gestion y manejo de datos. se definen las siguientes entradas out, clk y las salidas s0, s1, s2, s3, rojo y azul ( los colores a filtrar), el modulo asigna los valores de 1 a s0 y s1 para manejar el 100% de la frecuencia del sensor, y s2 en 0 ya que para los colores que se filtraron se necesitaba que este estuviera con un nivel logico en bajo, luego se inicia un conteo de 0,2 segundos en los cuales se van tomando los anchos de pulso de cada matriz de color selecionada (en este caso rojo y azul), las cuales se activan y desactivan con s2 y s3.
 
  ### Modulo color
- <img align="right" height="250" src="https://i.ibb.co/F8BJnVV/Rtl-Control-Color.png"  />
+ <img align="right" height="450" src="https://i.ibb.co/F8BJnVV/Rtl-Control-Color.png"  
 
  El modulo de control funciona obteniendo los datos del sensor de color el cual si el ancho de pulso de la matriz del sensor rojo es menor que la del sensor azul se encienda el led rojo y viceversa.
 
