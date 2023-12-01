@@ -6,7 +6,7 @@ Integrantes:
 - Andres Felipe Clavijo Durán
 - Erika Johanna Quintero Calderón
   
-## Contexto del problema
+## Problema
 
 En un centro de distribución industrial, se reciben grandes volúmenes de cajas provenientes de diferentes proveedores y con variados tamaños, formas y materiales. Estas cajas deben ser clasificadas eficientemente para su posterior almacenamiento y envío. Sin embargo, la clasificación manual en grandes cantidades consume mucho tiempo y dependiendo de la cantidad de productos a clasificar necesitará de menos o más personal, la variedad de cajas puede dificultar la optimización del espacio de almacenamiento y el personal puede estar realizando actividades que requieran de esfuerzo físico que puede inducir errores en la actividad de clasificación. El desafío radica en desarrollar un sistema automatizado que permita clasificar las cajas de manera precisa y eficiente.
 
@@ -117,27 +117,22 @@ El módulo top interconecta todos los módulos de verilog utilizados para el fun
  
  El modulo de color basicamente funciona filtrando cada señal obtenida en un cable que es enviado al modulo de control para realizar la gestion y manejo de datos. se definen las siguientes entradas out, clk y las salidas s0, s1, s2, s3, rojo y azul ( los colores a filtrar), el modulo asigna los valores de 1 a s0 y s1 para manejar el 100% de la frecuencia del sensor, y s2 en 0 ya que para los colores que se filtraron se necesitaba que este estuviera con un nivel logico en bajo, luego se inicia un conteo de 0,2 segundos en los cuales se van tomando los anchos de pulso de cada matriz de color selecionada (en este caso rojo y azul), las cuales se activan y desactivan con s2 y s3.
 
-//
+
+
 
 //
 
 //
 
 //
+
+//
+
 
  ### Modulo color
  <img align="left" height="250" src="https://i.ibb.co/F8BJnVV/Rtl-Control-Color.png"  />
 
  El modulo de control funciona obteniendo los datos del sensor de color el cual si el ancho de pulso de la matriz del sensor rojo es menor que la del sensor azul se encienda el led rojo y viceversa.
- 
-//
-
-//
-
-//
-
-//
-
 
  
 
