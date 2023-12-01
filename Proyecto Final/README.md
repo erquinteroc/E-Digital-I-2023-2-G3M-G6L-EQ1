@@ -1,4 +1,4 @@
-# Separador de cajas por tamaño y por color
+# Sistema de Clasificación Automatizado de Cajas por color y Dimensiones Mediante banda Transportadora
 
 Integrantes:
 
@@ -6,14 +6,19 @@ Integrantes:
 - Andres Felipe Clavijo Durán
 - Erika Johanna Quintero Calderón
   
-## Contexto del problema
+## Problema
 
 En un centro de distribución industrial, se reciben grandes volúmenes de cajas provenientes de diferentes proveedores y con variados tamaños, formas y materiales. Estas cajas deben ser clasificadas eficientemente para su posterior almacenamiento y envío. Sin embargo, la clasificación manual en grandes cantidades consume mucho tiempo y dependiendo de la cantidad de productos a clasificar necesitará de menos o más personal, la variedad de cajas puede dificultar la optimización del espacio de almacenamiento y el personal puede estar realizando actividades que requieran de esfuerzo físico que puede inducir errores en la actividad de clasificación. El desafío radica en desarrollar un sistema automatizado que permita clasificar las cajas de manera precisa y eficiente.
 
-Para el desarrollo de este proyecto se utilizó una banda transportadora con motor incluido, un sensor de ultrasonido, un módulo láser con una fotocelda, dos servomotores, arduino como convertidor ADC y la FPGA Lattice ice 40x.
+## Solución
 
-### Aclaraciones
-Debido a problemas con el sensor de color no se pudo implementar este en el proyecto, en reemplazo se implementó un sensor láser como detector de obstáculos, luego la máquina solo podrá separar cajas por tamaño.
+Una solucion al problema es implementar un sistema que optimice a la gestión de clasificación de cajas en la industria a través de un sistema de control. Su diseño se enfoca en mejorar la eficiencia operativa y la organización al automatizar el proceso de clasificación, reduciendo considerablemente los tiempos de operación. Con un sofisticado sistema de control equipado con dos sensores, identifica con precisión el color y tamaño de las cajas. Además, utiliza actuadores para direccionar cada caja a ubicaciones específicas en función de estas características
+
+##Metodología. 
+
+Para el desarrollo de este proyecto se utilizó una banda transportadora con motor incluido, un sensor de ultrasonido, un módulo láser con una fotocelda, dos servomotores, arduino como convertidor ADC y la FPGA Lattice ice 40x. 
+
+Debido a problemas con el sensor de color no se implemento este en el proyecto físico, en reemplazo de  este en la practica se implementó un sensor láser como detector de obstáculos, y detectar las cajas en funcion a su tamaño.
 
 ### Funcionamiento
 El sensor de ultrasonido utilizado para medir la altura de las cajas estará midiendo esto constantemente pero unicamente se tomarán los datos cuando una caja pase por debajo de esto, nos aseguramos de esto usando un módulo laser que apunta hacia una fotocelda al otro lado de la banda transportadora, cuando una caja pase en frente del láser esta permitirá que la FPGA tome datos únicamente en ese momento, datos que serán utilizados para mover los servomotores ubicados a los lados de la banda transportadora los cuales enviaran las cajas a diferentes lugares dependiendo de su tamaño.
@@ -71,14 +76,15 @@ Salidas: ciclos
 
 Entradas: count, laser
 
+
+
 Salidas: xled, rled, vled, aled
 
 //
 
 //
 
-//
-
+/
 //
 
 ### Módulos servo y servo2 (Controlador de servomotores)
@@ -94,3 +100,8 @@ Primero se utiliza un multiplexor que utiliza como señal de control la entrada 
 Entradas: clk_in (25MHz), rg (servo), vg(servo2)
 
 Salidas: clk_out
+
+
+## Sensor de Color 
+
+
